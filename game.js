@@ -90,7 +90,7 @@ choices.forEach(choice => {
         var selectedChoice = i.target
         var selectedAnswer = selectedChoice.dataset['number']
 
-        var classToApply = selectedAnswer == currentQuestion.asnwer ? 'correct':
+        var classToApply = selectedAnswer == currentQuestion.answer ? 'correct':
         'incorrect'
 
         if(classToApply === 'correct') {
@@ -98,11 +98,9 @@ choices.forEach(choice => {
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
-
-        setTimout = (() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
-            getNewQuestions()
-        }, 1000)
+        selectedChoice.parentElement.classList.remove(classToApply)
+        getNewQuestions();
+            
 
     })
 })
