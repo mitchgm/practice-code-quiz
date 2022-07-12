@@ -83,6 +83,7 @@ getNewQuestions = () => {
 }
 
 choices.forEach(choice => {
+    console.log(choice)
     choice.addEventListener ('click', i => {
         if(!acceptingAnswers) {return}
 
@@ -98,8 +99,11 @@ choices.forEach(choice => {
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
-        selectedChoice.parentElement.classList.remove(classToApply)
-        getNewQuestions();
+       setTimeout(() => {
+              selectedChoice.parentElement.classList.remove(classToApply)
+              getNewQuestions()
+         }
+        , 1000)
             
 
     })
